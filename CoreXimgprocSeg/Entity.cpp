@@ -46,9 +46,8 @@ namespace CoreXimgprocSeg
 		for (std::vector<cv::Rect>::iterator it = rects.begin(); it != rects.end(); ++it) {
 					
 			rectsCLR.push_back(RectCLR((*it).x, (*it).y, (*it).width, (*it).height));
-		}
+		}	
 		
-		return rectsCLR;
 
 		/*int nb_rects = 10;
 
@@ -80,5 +79,7 @@ namespace CoreXimgprocSeg
 				nb_rects -= 10;
 			}
 		}*/
+
+		return rectsCLR;
 	}
 }

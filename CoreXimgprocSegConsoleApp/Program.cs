@@ -13,16 +13,34 @@ namespace CoreXimgprocSegConsoleApp
         {
             try
             {
-                var fileName = "deer.jpg";
+                if (args.Length < 3)
+                {
+                    Console.WriteLine("Must specify fileName and strategyType and if you want to display results. EG: deer.jpg f y");
+                    return;
+                }
+
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+
+                var fileName = args[0];
+                var strategyType = args[1];
+                var displayResult = args[2].ToLower() == "y";
 
                 var selectiveSearch = new SelectiveSearch();
 
-                var rects = selectiveSearch.GetRectangles(fileName, "f");
+                var rects = selectiveSearch.GetRectangles(fileName, strategyType);
 
-                foreach (var r in rects.ToList())
+                watch.Stop();
+                var elapsedMs = watch.ElapsedMilliseconds;
+
+                if (displayResult)
                 {
-                    Console.WriteLine($"X {r.X} Y {r.Y} Width {r.Width} Height {r.Height}");
+                    foreach (var r in rects.ToList())
+                    {
+                        Console.WriteLine($"X {r.X} Y {r.Y} Width {r.Width} Height {r.Height}");
+                    }
                 }
+
+                Console.WriteLine($"Total time {elapsedMs} milliseconds");
             }
             catch (Exception e)
             {
