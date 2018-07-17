@@ -34,10 +34,16 @@ namespace CoreXimgprocSegConsoleApp
 
                 if (displayResult)
                 {
+                    string text = string.Empty;
+
                     foreach (var r in rects.ToList())
                     {
                         Console.WriteLine($"X {r.X} Y {r.Y} Width {r.Width} Height {r.Height}");
+
+                        text = $"{text}{r.X} {r.Y} {r.Width} {r.Height} ";
                     }
+
+                    System.IO.File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + @"\WriteText.txt", text.Trim());
                 }
 
                 Console.WriteLine($"Total time {elapsedMs} milliseconds");
