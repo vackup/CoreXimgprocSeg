@@ -15,7 +15,7 @@ namespace CoreXimgprocSegConsoleApp
             {
                 if (args.Length < 3)
                 {
-                    Console.WriteLine("Must specify fileName and strategyType and if you want to display results. EG: deer.jpg f y");
+                    Console.WriteLine("Must specify fileName and strategyType and if you want to display and save results. EG: deer.jpg f y");
                     return;
                 }
 
@@ -43,7 +43,7 @@ namespace CoreXimgprocSegConsoleApp
                         text = $"{text}{r.X} {r.Y} {r.Width} {r.Height} ";
                     }
 
-                    System.IO.File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + @"\WriteText.txt", text.Trim());
+                    System.IO.File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + @"\Rois.txt", text.Trim());
                 }
 
                 Console.WriteLine($"Total time {elapsedMs} milliseconds");
