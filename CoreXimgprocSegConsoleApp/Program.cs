@@ -15,7 +15,8 @@ namespace CoreXimgprocSegConsoleApp
             {
                 if (args.Length < 3)
                 {
-                    Console.WriteLine("Must specify fileName and strategyType and if you want to display and save results. EG: deer.jpg f y");
+                    Console.WriteLine("Must specify fileName and strategyType (q = SelectiveSearchQuality, s = SingleStrategy, other = SelectiveSearchFast)" +
+                                      " and if you want to display and save results. EG: deer.jpg f y");
                     return;
                 }
 
